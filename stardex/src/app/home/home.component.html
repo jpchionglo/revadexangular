@@ -1,1 +1,16 @@
 <p>home works!</p>
+
+<!--
+
+  Map Display
+
+-->
+
+<img [src] = "mapurl" style="display: block; height: 75%; width: 75%; margin-left: auto; margin-right: auto;">
+
+
+<ng-container *ngIf="constellation">
+
+  <app-constellation></app-constellation>
+
+</ng-container>

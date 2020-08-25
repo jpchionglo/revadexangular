@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constellation: string;
+  mapurl: string;
+
+  constructor(private img: ImageService) { }
 
   ngOnInit(): void {
+
+    this.constellation = 'something';
+    this.mapurl = 'http://www.radicalcartography.net/stars4.png';
+
   }
 
 }
