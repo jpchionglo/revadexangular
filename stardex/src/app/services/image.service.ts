@@ -11,7 +11,7 @@ export class ImageService {
 
   constructor(private req: RequestService) { }
 
-  getImageUrl(name): Observable<ImageUrlData> {
+  getImageUrl(name: string): Observable<string> {
     return this.req.getImageUrl(name);
   }
 

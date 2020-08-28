@@ -10,8 +10,8 @@ import { ImageUrlData } from '../data/Image_data.model';
 })
 export class StarComponent implements OnInit {
 
-  image$: Observable<ImageUrlData>;
-  image: ImageUrlData;
+  image$: Observable<string>;
+  image: string;
 
   constructor(private img: ImageService) { }
 
