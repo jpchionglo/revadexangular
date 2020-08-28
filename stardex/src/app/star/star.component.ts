@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../services/image.service';
-import { Oberservable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ImageUrlData } from '../data/Image_data.model';
 
 @Component({
@@ -17,12 +17,13 @@ export class StarComponent implements OnInit {
 
   ngOnInit(): void {
     ///Image
-    this.image$ = this.img.getImageUrl();
+    let name = 'Mercury'
+    this.image$ = this.img.getImageUrl(name);
     this.image$.subscribe((res) => {
       this.image = res;
     ///
 
-    
+
     })
   }
 
