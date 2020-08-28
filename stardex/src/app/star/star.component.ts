@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from '../services/image.service';
+import { Observable } from 'rxjs';
+import { ImageUrlData } from '../data/Image_data.model';
 
 @Component({
   selector: 'app-star',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarComponent implements OnInit {
 
-  constructor() { }
+  image$: Observable<string>;
+  image: string;
+
+  constructor(private img: ImageService) { }
 
   ngOnInit(): void {
+    ///Image
+    let name = 'Mercury'
+    this.image$ = this.img.getImageUrl(name);
+    this.image$.subscribe((res) => {
+      this.image = res;
+    ///
+
+
+    })
   }
 
 }
