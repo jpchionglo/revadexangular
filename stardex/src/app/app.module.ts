@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PlanetComponent } from './planet/planet.component';
 import { ConstellationComponent } from './constellation/constellation.component';
 import { StarComponent } from './star/star.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { StarComponent } from './star/star.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
