@@ -10,12 +10,14 @@ export class HomeComponent implements OnInit {
 
   constellation: string;
   mapurl: string;
+  let 
 
   constructor(private img: ImageService) { }
 
   ngOnInit(): void {
 
     this.constellation = 'something';
+
     this.mapurl = 'http://www.radicalcartography.net/stars4.png';
 
   }
