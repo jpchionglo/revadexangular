@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ImageService } from '../services/image.service';
+import { ImageUrlData } from '../data/Image_data.model';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-planet',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetComponent implements OnInit {
 
-  constructor() { }
+  name: string;
+  image$: Observable<string>;
+  image: string;
+
+  constructor(private img: ImageService) { }
 
   ngOnInit(): void {
+    ///Image
+    let name = 'Mercury'
+    this.image$ = this.img.getImageUrl(name);
+    this.image$.subscribe((res) => {
+      this.image = res;
+    })
+    ///
   }
 
 }

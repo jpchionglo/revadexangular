@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ConstellationComponent implements OnInit {
 
+  name: string;
   image$: Observable<string>;
   image: string;
 
@@ -21,8 +22,10 @@ export class ConstellationComponent implements OnInit {
     this.image$ = this.img.getImageUrl(name);
     this.image$.subscribe((res) => {
       this.image = res;
-  })
-  ///
+    })
+    ///
+
+    
 }
 
 }
