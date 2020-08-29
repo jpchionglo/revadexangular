@@ -5,15 +5,12 @@
 
 -->
 
-
-
 <img [src] = "mapurl" style="display: block; height: 90%; width: 100%; margin-left: auto; margin-right: auto;">
 
 <button type="button" label="Click" (click)="toggleChild()">Name</button>
 <div>
   <app-constellation [showMe]="should_open"></app-constellation>
 </div>
-
 
 <!-- @using (Html.BeginForm("Get", "Constellation", FormMethod.Get)) {
   @foreach (StarDex.Client.Models.ConstellationButtonModel constellation in Model.stars) {
@@ -27,7 +24,15 @@
 } -->
 
 <ng-container *ngIf="constellation">
+  
+<ul>
 
+  <li *ngFor="let const of constellations">
+    {{ const.Name }}
+  </li>
+
+</ul>
+  
   <app-constellation></app-constellation>
 
 </ng-container>
