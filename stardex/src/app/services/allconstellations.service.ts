@@ -15,9 +15,11 @@ export class AllconstellationsService {
 
   constructor(private http: HttpClient, private req: RequestService) { }
 
-  getConstellations(): Constellation[] {
+  getConstellations(): Observable<string> {
 
-    this.obv$ = this.req.getJSON("https://domainserviceapi.azurewebsites.net/api/Constellation");
+    return this.req.getJSON("https://domainserviceapi.azurewebsites.net/api/Constellation");
+
+    /* this.obv$ = this.req.getJSON("https://domainserviceapi.azurewebsites.net/api/Constellation");
 
     this.obv$.subscribe((res) => {
 
@@ -29,7 +31,7 @@ export class AllconstellationsService {
     
     let jObj: any = JSON.parse(this.obvString);
     
-    return <Constellation[]>jObj;
+    return <Constellation[]>jObj; */
 
   }
 
