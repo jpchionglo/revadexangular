@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ImageService } from '../services/image.service';
 import { ImageUrlData } from '../data/Image_data.model';
 import { Observable } from 'rxjs';
@@ -9,12 +9,14 @@ import { Observable } from 'rxjs';
   styleUrls: ['./constellation.component.css']
 })
 export class ConstellationComponent implements OnInit {
+  @Input() showMe: boolean;
 
   name: string;
   image$: Observable<string>;
   image: string;
 
-  constructor(private img: ImageService) { }
+  constructor(private img: ImageService) { 
+  }
 
   ngOnInit(): void {
     ///Image
