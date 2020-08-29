@@ -10,6 +10,7 @@ import { ImageUrlData } from '../data/Image_data.model';
 })
 export class StarComponent implements OnInit {
 
+  name: string;
   image$: Observable<string>;
   image: string;
 
@@ -17,7 +18,7 @@ export class StarComponent implements OnInit {
 
   ngOnInit(): void {
     ///Image
-    let name = 'Mercury'
+    let name = ''
     this.image$ = this.img.getImageUrl(name);
     this.image$.subscribe((res) => {
       this.image = res;

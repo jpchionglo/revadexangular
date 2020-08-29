@@ -1,4 +1,3 @@
-<p>home works!</p>
 
 <!--
 
@@ -6,8 +5,26 @@
 
 -->
 
-<img [src] = "mapurl" style="display: block; height: 75%; width: 75%; margin-left: auto; margin-right: auto;">
 
+
+<img [src] = "mapurl" style="display: block; height: 90%; width: 100%; margin-left: auto; margin-right: auto;">
+
+<button type="button" label="Click" (click)="toggleChild()">Name</button>
+<div>
+  <app-constellation [showMe]="should_open"></app-constellation>
+</div>
+
+
+<!-- @using (Html.BeginForm("Get", "Constellation", FormMethod.Get)) {
+  @foreach (StarDex.Client.Models.ConstellationButtonModel constellation in Model.stars) {
+    <input type="submit" name="name" value="@constellation.name" class="btn" style="top: @constellation.top%; left: @constellation.left%;">
+  }
+}
+@using (Html.BeginForm("Get", "Planet", FormMethod.Get)) {
+  @foreach (StarDex.Client.Models.PlanetViewModel planet in Model.planets) {
+    <input type="submit" name="name" value="@planet.Name" class="btn" style="top: @planet.Top%; left: @planet.Left%;">
+  }
+} -->
 
 <ng-container *ngIf="constellation">
 
