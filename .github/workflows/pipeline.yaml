@@ -41,9 +41,32 @@ jobs:
       - run: dotnet restore
       - run: dotnet build --no-restore
 
-  test:
-  analyze:
-  pack:
+  pack_angular:
+    defaults:
+      run:
+        working-directory: stardex/
+      runs-on: ubuntu 20.04
+      steps:
+        - uses: actions/checkout@v2
+        - run: docker login
+        - run: docker image build -f .docker/stardex.dockerfile -t angular .
+        - run: docker image tag angular jacobfantauzzi/ng2020
+        - run: docker image push jacobfantauzzi/ng2020
+        - run: docker logout
+
+  pack_image_service:
+    defaults:
+      run:
+        working-directory: stardex/
+      runs-on: ubuntu 20.04
+      steps:
+        - uses: actions/checkout@v2
+        - run: docker login
+        - run: docker image build -f .docker/image_api.dockerfile -t imageservice .
+        - run: docker image tag imageservice jacobfantauzzi/ng2020
+        - run: docker image push jacobfantauzzi/ng2020
+        - run: docker logout
+
   deploy:
 
 name: pipeline

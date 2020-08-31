@@ -1,5 +1,5 @@
 # ANGULAR DOCKERFILE
-FROM node:14 as build
+FROM node:current as build
 WORKDIR /workspace
 COPY . .
 RUN npm ci
