@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   display: string;
   display2: number;
   should_open: boolean;
-
+  mapStyle: string;
 
   constructor(private img: ImageService, private allconst: AllconstellationsService) { }
 
@@ -30,20 +30,16 @@ export class HomeComponent implements OnInit {
     this.mapurl = "http://www.radicalcartography.net/stars4.png";
     this.obv$ = this.allconst.getConstellations();
     this.obv$.subscribe((res) => {
-    this.should_open = false;
-    this.constellation = 'something';
 
       this.display = res;
       this.constellations = <Constellation[]>JSON.parse(this.display);
 
     });
 
-    
+    this.mapStyle = "width: 100%; height: auto; position: relative;"
     
   }
 
-  toggleChild(): void {
-    this.should_open = !this.should_open;
-  }
+  
 
 }
