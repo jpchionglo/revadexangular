@@ -13,5 +13,5 @@ export class Constellation {
     public imageURL: string
 
   ) {}
-  
+
 }

@@ -15,7 +15,7 @@ export class AllplanetsService {
 
   getPlanets(): Observable<string> {
 
-    return this.req.getJSON("https://domainserviceapi.azurewebsites.net/api/Planet");
+    return this.req.getJSON('https://domainserviceapi.azurewebsites.net/api/Planet');
 
   }
 }
