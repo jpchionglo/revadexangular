@@ -14,11 +14,11 @@ export class RequestService {
   constructor(private http: HttpClient) {  }
 
   getImageUrl(name: string): Observable<string> {
-  
-    return this.http.get('http://imageservicerevadex.azurewebsites.net/api/Image/' + name, {responseType: 'text'}) //.pipe(map(function (res) { return res.value } ));
+
+    return this.http.get('http://imageservicerevadex.azurewebsites.net/api/Image/' + name, {responseType: 'text'});
 
   }
-  
+
   getJSON(url: string): Observable<string> {
 
     return this.http.get(url, {responseType: 'text'});
