@@ -22,32 +22,31 @@ export class HomeComponent implements OnInit {
   mapurl: string;
   display: string;
   display2: number;
-  should_open: boolean;
   mapStyle: string;
 
   constructor(private img: ImageService, private allconst: AllconstellationsService, private allplanets: AllplanetsService) { }
 
   ngOnInit(): void {
-    this.mapurl = "http://www.radicalcartography.net/stars4.png";
+    this.mapurl = 'http://www.radicalcartography.net/stars4.png';
     this.obv$ = this.allconst.getConstellations();
     this.obv$.subscribe((res) => {
 
       this.display = res;
-      this.constellations = <Constellation[]>JSON.parse(this.display);
+      this.constellations = JSON.parse(this.display) as Constellation[];
 
     });
 
     this.obv2$ = this.allplanets.getPlanets();
     this.obv2$.subscribe((res) => {
 
-      this.planets = <Planet[]>JSON.parse(res);
+      this.planets = JSON.parse(res) as Planet[];
 
     });
 
-    this.mapStyle = "width: 100%; height: auto; position: relative;"
-    
+    this.mapStyle = 'width: 100%; height: auto; position: relative;';
+
   }
 
-  
+
 
 }

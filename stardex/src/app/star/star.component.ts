@@ -15,7 +15,7 @@ export class StarComponent implements OnInit {
   name: string;
   image$: Observable<string>;
   image: string;
-  should_open: boolean;
+  shouldOpen: boolean;
   showdistance: boolean;
   showtemperature: boolean;
   showmass: boolean;
@@ -23,13 +23,13 @@ export class StarComponent implements OnInit {
   constructor(private img: ImageService) { }
 
   ngOnInit(): void {
-    ///Image
+
     this.name = this.star.Name;
     this.image$ = this.img.getImageUrl(this.name);
     this.image$.subscribe((res) => {
       this.image = res;
-    })
-    this.should_open = false;
+    });
+    this.shouldOpen = false;
 
     if (this.star.Distance > 0){
       this.showdistance = true;
@@ -46,7 +46,7 @@ export class StarComponent implements OnInit {
   }
 
   toggleChild(): void {
-    this.should_open = !this.should_open;
+    this.shouldOpen = !this.shouldOpen;
   }
 
 }
