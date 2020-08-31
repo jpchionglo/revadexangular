@@ -1,4 +1,6 @@
 
+<h1>Stardex Angular Web App</h1>
+
 <!--
 
   Map Display
@@ -21,5 +23,12 @@
 <ul>
   <li *ngFor="let const of constellations">
     <app-constellation [constellation]="const"></app-constellation>
+  </li>
+</ul>
+
+<h3> Planets </h3>
+<ul>
+  <li *ngFor="let planet of planets">
+    <app-planet [planet]="planet"></app-planet>
   </li>
 </ul>

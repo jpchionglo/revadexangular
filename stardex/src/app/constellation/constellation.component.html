@@ -13,11 +13,14 @@
 <input type="submit" name="name" label="Click" [value]="name" (click)="toggleChild()" class="btn" [style]="buttonStyle">
 
 <ng-container *ngIf="should_open">
+  <p><b>{{constellation.Name}}</b></p>
   <img [src]="image" style="display: block; height: 50%; width: 50%; margin-left: auto; margin-right: auto;" [alt]=name>
+  <p>{{constellation.Description}}</p>
   <h4>Stars:</h4>
   <ul>
     <li *ngFor="let star of constellation.Stars">
-      <app-star></app-star>
+      <app-star [star]="star"></app-star>
     </li>
   </ul>
+  <br>
 </ng-container>

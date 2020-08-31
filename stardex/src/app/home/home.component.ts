@@ -5,7 +5,7 @@ import { Planet } from '../models/planet';
 import { AllconstellationsService } from '../services/allconstellations.service';
 import { timer, Observable } from 'rxjs';
 import { ConstellationComponent } from '../constellation/constellation.component';
-
+import { AllplanetsService } from '../services/allplanets.service';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   selectedConstellation: string;
   constellations: Constellation[];
   obv$: Observable<string>;
+  obv2$: Observable<string>;
   planets: Planet[];
   mapurl: string;
   display: string;
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
   should_open: boolean;
   mapStyle: string;
 
-  constructor(private img: ImageService, private allconst: AllconstellationsService) { }
+  constructor(private img: ImageService, private allconst: AllconstellationsService, private allplanets: AllplanetsService) { }
 
   ngOnInit(): void {
     this.mapurl = "http://www.radicalcartography.net/stars4.png";
@@ -33,6 +34,13 @@ export class HomeComponent implements OnInit {
 
       this.display = res;
       this.constellations = <Constellation[]>JSON.parse(this.display);
+
+    });
+
+    this.obv2$ = this.allplanets.getPlanets();
+    this.obv2$.subscribe((res) => {
+
+      this.planets = <Planet[]>JSON.parse(res);
 
     });
 
