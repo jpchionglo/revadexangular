@@ -2,12 +2,13 @@ jobs:
   build_angular:
     defaults:
       run:
-        working-directory: stardex/
+        working-directory: stardex/ #does it need to be in ng10 folder
     runs-on: ubuntu-20.04
     steps:
-      uses: actions/checkout@v2
-      run: npm run build
-      run: npm lint
+      - uses: actions/checkout@v2
+      - run: npm ci #clean-install
+      - run: npm run build
+      - run: npm run lint
 
 
   build_img_api:
@@ -16,9 +17,9 @@ jobs:
         working-directory: --
     runs-on: ubuntu-20.04
     steps:
-      uses: actions/checkout@v2
-      run: dotnet restore
-      run: dotnet build --no-restore
+      - uses: actions/checkout@v2
+      - run: dotnet restore
+      - run: dotnet build --no-restore
   
   build_domain_api:
     defaults:
@@ -26,9 +27,9 @@ jobs:
         working-directory: --
     runs-on: ubuntu-20.04
     steps:
-      uses: actions/checkout@v2
-      run: dotnet restore
-      run: dotnet build --no-restore
+      - uses: actions/checkout@v2
+      - run: dotnet restore
+      - run: dotnet build --no-restore
 
   build_aspnet_mvc:
     defaults:
@@ -36,9 +37,9 @@ jobs:
         working-directory: --
     runs-on: ubuntu-20.04
     steps:
-      uses: actions/checkout@v2
-      run: dotnet restore
-      run: dotnet build --no-restore
+      - uses: actions/checkout@v2
+      - run: dotnet restore
+      - run: dotnet build --no-restore
 
   test:
   analyze:
